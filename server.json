@@ -1,20 +1,20 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.m-dev-tools/m-dev-tools-mcp",
-  "description": "MCP server for the m-dev-tools org catalog — exposes route_intent, describe, and verify as first-class agent tools.",
+  "description": "MCP server wrapping the m-dev-tools catalog: route_intent, describe, verify.",
   "title": "m-dev-tools",
   "websiteUrl": "https://github.com/m-dev-tools/m-dev-tools-mcp",
   "repository": {
     "url": "https://github.com/m-dev-tools/m-dev-tools-mcp",
     "source": "github"
   },
-  "version": "0.2.2",
+  "version": "0.2.3",
   "packages": [
     {
       "registryType": "pypi",
       "registryBaseUrl": "https://pypi.org",
       "identifier": "m-dev-tools-mcp",
-      "version": "0.2.2",
+      "version": "0.2.3",
       "runtimeHint": "uvx",
       "transport": {
         "type": "stdio"

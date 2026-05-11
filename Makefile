@@ -73,3 +73,7 @@ build:
 clean:
 	rm -rf .venv .pytest_cache .ruff_cache .mypy_cache build dist/*.egg-info \
 	    src/*.egg-info wheel-out
+	# Belt-and-suspenders: even if a future `python -m build` forgets
+	# --outdir and writes wheels under dist/, clean them up so they
+	# don't leak into a future PyPI publish.
+	rm -f dist/*.whl dist/*.tar.gz
