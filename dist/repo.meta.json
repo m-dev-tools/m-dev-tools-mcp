@@ -8,7 +8,8 @@
   "agent_instructions": "AGENTS.md",
   "verified_on": "2026-05-11",
   "exposes": {
-    "tools": "dist/mcp-tools.json"
+    "mcp_tools": "dist/mcp-tools.json",
+    "release_wheel": "https://github.com/m-dev-tools/m-dev-tools-mcp/releases/download/v0.1.0/m_dev_tools_mcp-0.1.0-py3-none-any.whl"
   },
   "consumes": ["tool:m-cli", "tool:m-stdlib", "tool:m-standard"],
   "verification_commands": ["make check"]
