@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/m-dev-tools/.github/main/profile/repo.meta.schema.json",
+  "id": "tool:m-dev-tools-mcp",
+  "repo": "https://github.com/m-dev-tools/m-dev-tools-mcp",
+  "role": "MCP server wrapping the m-dev-tools org catalog as route_intent / describe / verify tools",
+  "language": ["python"],
+  "license": "AGPL-3.0",
+  "agent_instructions": "AGENTS.md",
+  "verified_on": "2026-05-11",
+  "exposes": {
+    "tools": "dist/mcp-tools.json"
+  },
+  "consumes": ["tool:m-cli", "tool:m-stdlib", "tool:m-standard"],
+  "verification_commands": ["make check"]
+}

@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "m-dev-tools-mcp"
+version = "0.0.1"
+description = "MCP server for the m-dev-tools org catalog — exposes route_intent, describe, and verify as first-class agent tools."
+readme = "README.md"
+license = { text = "AGPL-3.0" }
+requires-python = ">=3.10"
+authors = [{ name = "m-dev-tools" }]
+keywords = ["mcp", "m-dev-tools", "mumps", "yottadb", "agent", "tooling"]
+classifiers = [
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development",
+]
+
+# MCP SDK pinned per phase4-plan.md §9 — the @tool decorator surface
+# has shifted across minor versions. Bumps go through their own PR.
+dependencies = [
+    "mcp>=1.2,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-randomly",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+m-dev-tools-mcp = "m_dev_tools_mcp.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/m-dev-tools/m-dev-tools-mcp"
+Issues = "https://github.com/m-dev-tools/m-dev-tools-mcp/issues"
+Source = "https://github.com/m-dev-tools/m-dev-tools-mcp"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --tb=short"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_unused_ignores = true
+warn_redundant_casts = true

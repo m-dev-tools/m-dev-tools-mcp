@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/m-dev-tools/.github/main/profile/repo.meta.schema.json",
+  "kind": "m-dev-tools-mcp.tools",
+  "package": "m_dev_tools_mcp",
+  "version": "0.0.1",
+  "tool_count": 3,
+  "tools": [
+    {
+      "name": "describe",
+      "summary": "Return a pointer-blob for a typed ID (``tool:`` / ``module:`` / ``cmd:`` / ``recipe:``).",
+      "description": "Return a pointer-blob for a typed ID (``tool:`` / ``module:`` / ``cmd:`` / ``recipe:``).\n\n        Does not inline the underlying payloads \u2014 returns URLs the caller\n        should fetch next. Implemented in Track B (\u00a73 B4).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "typed_id": {
+            "type": "string",
+            "python_annotation": "str"
+          }
+        },
+        "required": [
+          "typed_id"
+        ]
+      },
+      "return_annotation": "dict[str, Any]"
+    },
+    {
+      "name": "route_intent",
+      "summary": "Return typed IDs matching the plain-English intent.",
+      "description": "Return typed IDs matching the plain-English intent.\n\n        Example: ``route_intent(\"parse JSON in M\")`` returns\n        ``[\"module:m-stdlib#STDJSON\"]`` once Track B lands. Track A\n        leaves the body as a placeholder.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "python_annotation": "str"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      },
+      "return_annotation": "list[str]"
+    },
+    {
+      "name": "verify",
+      "summary": "List the ``verification_commands`` declared in a repo's ``repo.meta.json``.",
+      "description": "List the ``verification_commands`` declared in a repo's ``repo.meta.json``.\n\n        Returns the command strings \u2014 does NOT execute them (executing\n        catalog-derived commands is a client/agent decision; see Track B\n        \u00a73 B5 rationale).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "repo": {
+            "type": "string",
+            "python_annotation": "str"
+          }
+        },
+        "required": [
+          "repo"
+        ]
+      },
+      "return_annotation": "list[str]"
+    }
+  ]
+}
