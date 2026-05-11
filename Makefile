@@ -1,4 +1,4 @@
-.PHONY: install test lint mypy fmt check manifest check-manifest check-agents clean
+.PHONY: install test lint mypy fmt check manifest check-manifest check-agents build clean
 
 PYTHON := .venv/bin/python
 PYTEST := .venv/bin/pytest
@@ -60,6 +60,13 @@ check-agents:
 	  fi
 	@echo "check-agents: AGENTS.md present; CLAUDE.md → AGENTS.md ✓"
 
+# Build the wheel for a GitHub Release. PEP-517 via the `build`
+# front-end; ships pure-Python with no compiled extensions. The
+# resulting `dist/m_dev_tools_mcp-<ver>-py3-none-any.whl` is what
+# `gh release create` attaches as a downloadable asset.
+build:
+	$(PYTHON) -m build --wheel
+
 clean:
 	rm -rf .venv .pytest_cache .ruff_cache .mypy_cache build dist/*.egg-info \
-	    src/*.egg-info
+	    src/*.egg-info dist/*.whl dist/*.tar.gz
