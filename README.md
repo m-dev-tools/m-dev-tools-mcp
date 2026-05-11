@@ -6,7 +6,7 @@ MCP server for the [m-dev-tools](https://github.com/m-dev-tools) org catalog. Ex
 - **`describe(typed_id)`** — typed ID → pointer-blob (manifest URL, AGENTS.md URL, verification commands, …)
 - **`verify(repo)`** — list a repo's declared verification commands (does not execute them)
 
-The server reads the catalog at <https://github.com/m-dev-tools/.github> over the network at call time; it is a thin wrapper, not a cache. See [`AGENTS.md`](AGENTS.md) for the contract and [phase4-plan.md](https://github.com/m-dev-tools/.github/blob/main/docs/phase4-plan.md) for the broader plan.
+The server reads the catalog at <https://github.com/m-dev-tools/.github> over the network at call time; it is a thin wrapper, not a cache. See [`AGENTS.md`](AGENTS.md) for the contract and [phase4-plan.md](https://github.com/m-dev-tools/.github/blob/main/docs/ai-discoverability/phase4-plan.md) for the broader plan.
 
 ## Status
 

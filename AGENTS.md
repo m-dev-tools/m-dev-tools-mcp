@@ -51,7 +51,7 @@ as a first-class protocol surface. Three MCP tools are registered:
 |---|---|
 | `route_intent(query)` | Plain-English intent → typed IDs. Example: `"parse JSON in M"` → `["module:m-stdlib#STDJSON"]`. |
 | `describe(typed_id)` | Typed ID → pointer-blob with `manifest_url`, `agent_instructions`, `verification_commands`. Does **not** inline payloads — keeps the catalog's "pointers, not facts" invariant. |
-| `verify(repo)` | Return the `verification_commands` declared in a repo's `dist/repo.meta.json`. **Does not execute them** — that is a client decision (see Track B §3 B5 rationale in [phase4-plan.md](https://github.com/m-dev-tools/.github/blob/main/docs/phase4-plan.md)). |
+| `verify(repo)` | Return the `verification_commands` declared in a repo's `dist/repo.meta.json`. **Does not execute them** — that is a client decision (see Track B §3 B5 rationale in [phase4-plan.md](https://github.com/m-dev-tools/.github/blob/main/docs/ai-discoverability/phase4-plan.md)). |
 
 Distribution is GitHub-Release wheels, not PyPI (`phase4-plan.md` §0).
 Install via `uvx --from git+https://github.com/m-dev-tools/m-dev-tools-mcp@v<X.Y> m-dev-tools-mcp`.
@@ -161,7 +161,7 @@ Importable from `m_dev_tools_mcp.server`:
 
 Track B vendors a subset of Phase 3's discovery helpers from
 `.github`'s `profile/build/test-discovery-protocol.py` — see Track B
-§3 in [phase4-plan.md](https://github.com/m-dev-tools/.github/blob/main/docs/phase4-plan.md)
+§3 in [phase4-plan.md](https://github.com/m-dev-tools/.github/blob/main/docs/ai-discoverability/phase4-plan.md)
 for the vendoring rationale.
 
 ## Git conventions
@@ -178,7 +178,7 @@ When acting in this repo, Claude should:
 1. Read this AGENTS.md once per fresh session.
 2. Treat `make check` as the contract — don't claim a stage complete
    without it green.
-3. Defer to [phase4-plan.md](https://github.com/m-dev-tools/.github/blob/main/docs/phase4-plan.md)
+3. Defer to [phase4-plan.md](https://github.com/m-dev-tools/.github/blob/main/docs/ai-discoverability/phase4-plan.md)
    for stage shape and verification commands; it is the load-bearing
    plan document for this repo's whole lifecycle.
 4. Follow TDD strictly: tests first, confirm RED, implement, confirm

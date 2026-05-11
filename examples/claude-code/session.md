@@ -2,7 +2,7 @@
 
 > **Status: TEMPLATE — needs to be filled in once with a real session.**
 >
-> Phase 4 Track C (per [phase4-plan.md §4 C3](https://github.com/m-dev-tools/.github/blob/main/docs/phase4-plan.md))
+> Phase 4 Track C (per [phase4-plan.md §4 C3](https://github.com/m-dev-tools/.github/blob/main/docs/ai-discoverability/phase4-plan.md))
 > calls for a recorded session that proves Claude Code routes the
 > canonical question through this MCP server's `route_intent` tool —
 > not by guessing from training data. The session can't be auto-
