@@ -1,0 +1,14 @@
+{
+  "$schema": "https://m-dev-tools.github.io/schemas/repo.meta.v1.json",
+  "id": "tool:m-stdlib",
+  "repo": "https://github.com/m-dev-tools/m-stdlib",
+  "role": "Pure-M runtime standard library — STD* modules (fixture)",
+  "language": ["m"],
+  "license": "AGPL-3.0",
+  "agent_instructions": "AGENTS.md",
+  "verified_on": "2026-05-11",
+  "exposes": {
+    "modules": "dist/stdlib-manifest.json"
+  },
+  "verification_commands": ["make check"]
+}

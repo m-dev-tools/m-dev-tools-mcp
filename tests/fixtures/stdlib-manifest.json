@@ -1,0 +1,20 @@
+{
+  "stdlib_version": "0.0.1-fixture",
+  "modules": {
+    "STDJSON": {
+      "synopsis": "RFC-8259 JSON parser / encoder (fixture trim).",
+      "description": "JSON parse/encode/validate. Trimmed for the offline handshake fixture.",
+      "labels": {
+        "parse": {
+          "form": "extrinsic",
+          "signature": "$$parse^STDJSON(text, root)",
+          "synopsis": "Parse `text` into `root`. Returns 1/0.",
+          "examples": [
+            "do  set rc=$$parse^STDJSON(\"[1,2,3]\",.t)"
+          ]
+        }
+      }
+    }
+  },
+  "errors": {}
+}

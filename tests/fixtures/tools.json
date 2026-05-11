@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/m-dev-tools/.github/main/profile/tools.schema.json",
+  "description": "Trimmed fixture for offline handshake tests. One tool entry (m-stdlib) is enough to exercise the typed-ID → manifest path.",
+  "discovery_protocol": {
+    "step_1_read": ["tools.json", "task_index.json"],
+    "step_2_match_intent": "Map user intent to a task_index entry.",
+    "step_3_resolve_tools": "Follow primary typed-ID through tools map.",
+    "step_4_load_local_context": "Read repo AGENTS.md.",
+    "step_5_load_manifests": "Fetch *_url payloads.",
+    "step_6_compose_workflow": "Use the tdd inner loop.",
+    "step_7_verify": "Run nearest toolchain checks.",
+    "step_8_do_not_invent": "Do not fabricate APIs."
+  },
+  "kind": "m-dev-tools.org-catalog",
+  "org": {
+    "name": "m-dev-tools",
+    "tagline": "Engine-neutral M (MUMPS) developer tools — offline fixture.",
+    "url": "https://github.com/m-dev-tools"
+  },
+  "schema_compat": 1,
+  "schema_version": "1.0",
+  "tools": {
+    "m-stdlib": {
+      "agent_instructions": "https://github.com/m-dev-tools/m-stdlib/blob/main/AGENTS.md",
+      "id": "tool:m-stdlib",
+      "language": "m",
+      "license": "AGPL-3.0",
+      "modules_url": "file://./stdlib-manifest.json",
+      "repo": "https://github.com/m-dev-tools/m-stdlib",
+      "repo_meta_url": "file://./repo.meta.json",
+      "role": "Pure-M runtime standard library — STD* modules (fixture)",
+      "status": "active",
+      "verified_on": "2026-05-11"
+    }
+  },
+  "workflow": {
+    "tdd_inner_loop": {
+      "description": "Trimmed TDD loop for fixture.",
+      "steps": [
+        {
+          "n": 1,
+          "action": "Scaffold",
+          "command": "m new myproj"
+        }
+      ]
+    }
+  }
+}

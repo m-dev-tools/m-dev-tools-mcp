@@ -30,28 +30,6 @@ def test_build_server_returns_object_with_three_tools() -> None:
     assert names == {"route_intent", "describe", "verify"}, names
 
 
-def test_tool_stubs_raise_not_implemented() -> None:
-    """Track A leaves the tool bodies as NotImplementedError stubs.
-    Track B replaces each in turn; this assertion will be deleted in
-    the B2 PR when route_intent gets a real implementation."""
-    from m_dev_tools_mcp.server import build_server
-
-    server = build_server()
-    for name in ("route_intent", "describe", "verify"):
-        fn = _resolve_tool(server, name)
-        try:
-            if name == "route_intent":
-                fn("parse JSON in M")
-            elif name == "describe":
-                fn("module:m-stdlib#STDJSON")
-            else:
-                fn("m-cli")
-        except NotImplementedError:
-            continue
-        else:
-            raise AssertionError(f"{name} should raise NotImplementedError in Track A")
-
-
 def test_version_flag_exits_zero() -> None:
     """``python -m m_dev_tools_mcp --version`` round-trips the package version
     without booting the server. Proves the entry-point wiring landed."""

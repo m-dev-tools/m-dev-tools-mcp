@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/m-dev-tools/.github/main/profile/task_index.schema.json",
+  "schema_compat": 1,
+  "schema_version": "1.0",
+  "kind": "m-dev-tools.task-index",
+  "_comment": "Trimmed fixture for offline handshake tests. One intent (json_parse) is enough to exercise the intent → primary typed-ID resolution.",
+  "categories": {
+    "lib": {
+      "json_parse": {
+        "intent": "Parse JSON text into an M tree",
+        "primary": "module:m-stdlib#STDJSON",
+        "example": "do parse^STDJSON(jsonText,.tree)"
+      },
+      "json_serialize": {
+        "intent": "Serialize an M tree to JSON text",
+        "primary": "module:m-stdlib#STDJSON"
+      }
+    }
+  }
+}

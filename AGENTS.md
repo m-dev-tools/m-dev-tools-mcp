@@ -100,10 +100,11 @@ contract every commit must satisfy.
   The meta-repo's `make check-repo-meta META=…` is the org-side gate.
 - **`dist/mcp-tools.json` is generated**, not hand-edited. `make manifest`
   is the regen; `make check-manifest` is the drift gate that CI runs.
-- **Tool stubs raise `NotImplementedError`.** A Track-B PR replacing a
-  stub with real behavior must also delete the matching
-  `test_tool_stubs_raise_not_implemented` case in `tests/test_smoke.py`
-  (the test pins Track A's contract; Track B intentionally retires it).
+- **Three MCP tools, no more.** The set is fixed at
+  `route_intent` / `describe` / `verify`. Adding a fourth tool is a
+  scope change — surface it as a follow-up plan PR on the meta-repo
+  before landing it here. The smoke test asserts the tool set is
+  exactly these three names; the manifest drift gate flags any rename.
 - **No catalog state is cached on disk.** The MCP server fetches
   `tools.json` + `task_index.json` from `origin/main` over HTTPS at call
   time. A 60-second in-memory cache lives inside the process; nothing
