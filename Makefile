@@ -61,12 +61,15 @@ check-agents:
 	@echo "check-agents: AGENTS.md present; CLAUDE.md → AGENTS.md ✓"
 
 # Build the wheel for a GitHub Release. PEP-517 via the `build`
-# front-end; ships pure-Python with no compiled extensions. The
-# resulting `dist/m_dev_tools_mcp-<ver>-py3-none-any.whl` is what
-# `gh release create` attaches as a downloadable asset.
+# front-end; ships pure-Python with no compiled extensions. Output
+# goes to `wheel-out/`, NOT `dist/` — `dist/` is reserved for the
+# org's Phase-0 contract artifacts (`dist/repo.meta.json` +
+# `dist/mcp-tools.json`), both tracked. Mixing wheel outputs there
+# breaks the PyPI publish step (twine rejects `*.json` as "unknown
+# distribution format").
 build:
-	$(PYTHON) -m build --wheel
+	$(PYTHON) -m build --wheel --outdir wheel-out
 
 clean:
 	rm -rf .venv .pytest_cache .ruff_cache .mypy_cache build dist/*.egg-info \
-	    src/*.egg-info dist/*.whl dist/*.tar.gz
+	    src/*.egg-info wheel-out

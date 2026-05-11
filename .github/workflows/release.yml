@@ -39,7 +39,12 @@ jobs:
         run: pip install --upgrade pip build
 
       - name: Build wheel
-        run: python -m build --wheel
+        # Output to `wheel-out/` not `dist/`. `dist/` is the org's
+        # Phase-0 convention dir for tracked catalog artifacts
+        # (repo.meta.json + mcp-tools.json); twine would reject the
+        # latter as "unknown distribution format" if the publish
+        # step uploaded from there.
+        run: python -m build --wheel --outdir wheel-out
 
       - name: Create GitHub Release with wheel attached
         # `gh release create` is idempotent on already-existing tags
@@ -47,7 +52,7 @@ jobs:
         # a previously cut release.
         run: |
           gh release create "${GITHUB_REF_NAME}" \
-            dist/*.whl \
+            wheel-out/*.whl \
             --title "${GITHUB_REF_NAME}" \
             --generate-notes
         env:
@@ -59,6 +64,8 @@ jobs:
         # `id-token: write` permission to mint an OIDC token PyPI
         # exchanges for a short-lived publish credential. Configured
         # once on PyPI's side.
+        with:
+          packages-dir: wheel-out/
 
       - name: Install mcp-publisher
         # Pulled fresh on every release; the CLI is small (single Go
