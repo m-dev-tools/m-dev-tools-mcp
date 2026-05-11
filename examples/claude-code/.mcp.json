@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "m-dev-tools-mcp": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/m-dev-tools/m-dev-tools-mcp@main",
+        "m-dev-tools-mcp"
+      ]
+    }
+  }
+}
