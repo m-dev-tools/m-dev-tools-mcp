@@ -58,10 +58,20 @@ Install via `uvx --from git+https://github.com/m-dev-tools/m-dev-tools-mcp@v<X.Y
 
 ## Status
 
-**Track A** (this scaffold): repo skeleton + Phase-0 contract + CI. Tool
-bodies raise `NotImplementedError`. **Track B** lands real behavior.
-**Tracks C / D / E** add Claude Code integration smoke, the v0.1.0
-release wheel, and Phase 4 exit evidence.
+Phase 4 closed 2026-05-11 — v0.1.0 release wheel shipped, `route_intent` / `describe` / `verify` all real-agent tested. Phase 6 ships PyPI + the official MCP registry listing (`io.github.m-dev-tools/m-dev-tools-mcp`); see [`AI-discoverability-plan.md` §7 Phase 6](https://github.com/m-dev-tools/.github/blob/main/docs/ai-discoverability/AI-discoverability-plan.md). `server.json` at the repo root + `.github/workflows/release.yml` automate both publishes on every `v*` tag.
+
+## Release process
+
+1. Bump `pyproject.toml` `version` (and `__version__` in `src/m_dev_tools_mcp/__init__.py`).
+2. Bump `server.json`'s `version` + `packages[0].version` to match.
+3. Open + merge a release PR.
+4. Tag `vX.Y.Z` on `main`; push the tag.
+5. `.github/workflows/release.yml` fires: builds the wheel, attaches it to the GitHub Release, publishes to PyPI via Trusted Publisher OIDC, then `mcp-publisher publish` updates the MCP registry record via GitHub OIDC.
+
+Manual prereq (one-time, by a maintainer):
+
+- **PyPI**: configure `m-dev-tools-mcp` as a [Trusted Publisher](https://docs.pypi.org/trusted-publishers/) pointing at this repo's `release.yml` workflow. No API token gets stored anywhere.
+- **MCP registry**: nothing — first `mcp-publisher publish` auto-claims the `io.github.m-dev-tools/*` namespace via the runner's GitHub OIDC token.
 
 ## Setup
 
