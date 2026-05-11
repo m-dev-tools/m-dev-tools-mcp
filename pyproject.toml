@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "m-dev-tools-mcp"
-version = "0.2.3"
+version = "0.2.4"
 description = "MCP server wrapping the m-dev-tools catalog: route_intent, describe, verify."
 readme = "README.md"
 license = { text = "AGPL-3.0" }
