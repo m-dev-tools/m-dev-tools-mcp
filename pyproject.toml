@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "m-dev-tools-mcp"
-version = "0.1.0"
+version = "0.2.0"
 description = "MCP server for the m-dev-tools org catalog — exposes route_intent, describe, and verify as first-class agent tools."
 readme = "README.md"
 license = { text = "AGPL-3.0" }
@@ -50,6 +50,9 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q --tb=short"
+# Pin cache inside this repo — see .github/docs/dev-practices/
+# parallel-multi-repo-git-hygiene.md.
+cache_dir = ".pytest_cache"
 
 [tool.ruff]
 line-length = 100
