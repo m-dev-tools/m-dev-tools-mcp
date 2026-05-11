@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/m-dev-tools/.github/main/profile/repo.meta.schema.json",
   "kind": "m-dev-tools-mcp.tools",
   "package": "m_dev_tools_mcp",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "tool_count": 3,
   "tools": [
     {
