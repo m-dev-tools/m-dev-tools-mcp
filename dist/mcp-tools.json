@@ -7,8 +7,8 @@
   "tools": [
     {
       "name": "describe",
-      "summary": "Return a pointer-blob for a typed ID (``tool:`` / ``module:`` / ``cmd:`` / ``recipe:``).",
-      "description": "Return a pointer-blob for a typed ID (``tool:`` / ``module:`` / ``cmd:`` / ``recipe:``).\n\n        Does not inline the underlying payloads \u2014 returns URLs the caller\n        should fetch next. Implemented in Track B (\u00a73 B4).",
+      "summary": "Return a pointer-blob for a typed ID.",
+      "description": "Return a pointer-blob for a typed ID.\n\n        Supported kinds: ``tool:`` / ``module:`` / ``cmd:`` / ``recipe:``.\n        Does not inline payloads \u2014 returns URLs the caller should\n        fetch next, keeping the catalog's \"pointers, not facts\"\n        invariant.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -26,7 +26,7 @@
     {
       "name": "route_intent",
       "summary": "Return typed IDs matching the plain-English intent.",
-      "description": "Return typed IDs matching the plain-English intent.\n\n        Example: ``route_intent(\"parse JSON in M\")`` returns\n        ``[\"module:m-stdlib#STDJSON\"]`` once Track B lands. Track A\n        leaves the body as a placeholder.",
+      "description": "Return typed IDs matching the plain-English intent.\n\n        Example: ``route_intent(\"parse JSON in M\")`` returns\n        ``[\"module:m-stdlib#STDJSON\"]``. Results are ``[primary,\n        *see_also]`` from the matched task_index row.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -43,8 +43,8 @@
     },
     {
       "name": "verify",
-      "summary": "List the ``verification_commands`` declared in a repo's ``repo.meta.json``.",
-      "description": "List the ``verification_commands`` declared in a repo's ``repo.meta.json``.\n\n        Returns the command strings \u2014 does NOT execute them (executing\n        catalog-derived commands is a client/agent decision; see Track B\n        \u00a73 B5 rationale).",
+      "summary": "List the ``verification_commands`` declared in a repo's",
+      "description": "List the ``verification_commands`` declared in a repo's\n        ``repo.meta.json``.\n\n        Accepts either a bare repo slug (``m-cli``) or a typed ID\n        (``tool:m-cli``). Does NOT execute the commands.",
       "parameters": {
         "type": "object",
         "properties": {

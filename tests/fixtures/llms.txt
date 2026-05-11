@@ -1,0 +1,15 @@
+# m-dev-tools (offline fixture)
+
+> Trimmed copy used by test-discovery-protocol.py --offline. All URLs
+> point at sibling fixture files via the file:// scheme so the offline
+> path stays network-free. Mirrors only the data files (not the
+> schemas, which the script reads from profile/ directly).
+
+## Start here
+
+- [Org catalog (machine-readable)](file://./tools.json): per-repo summary + pointer URLs
+- [Task index (hand-curated routing)](file://./task_index.json): intent → typed ID
+
+## Guardrails
+
+- Do not invent STD* APIs or `m` subcommands.
